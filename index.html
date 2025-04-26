@@ -1,0 +1,121 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>For My Love</title>
+    <style>
+        body {
+            background-color: #ffe6f0;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            position: relative;
+        }
+        h1 {
+            color: #d63384;
+            margin-top: 20px;
+        }
+        .gallery {
+            margin: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+        .gallery img {
+            border: 5px solid #ffb6c1;
+            border-radius: 20px;
+            width: 250px;
+            height: auto;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        .love-message {
+            background-color: #fff0f5;
+            margin: 30px auto;
+            padding: 20px;
+            border: 3px dashed #ff69b4;
+            width: 80%;
+            border-radius: 20px;
+            font-size: 20px;
+            color: #b3005e;
+        }
+        .decorations {
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            font-size: 40px;
+            animation: float 5s infinite ease-in-out alternate;
+            z-index: 10;
+        }
+        .decorations-right {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            font-size: 40px;
+            animation: float 5s infinite ease-in-out alternate-reverse;
+            z-index: 10;
+        }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            100% { transform: translateY(20px); }
+        }
+        /* Falling hearts animation */
+        .heart {
+            color: #ff69b4;
+            font-size: 20px;
+            position: absolute;
+            animation: fall linear infinite;
+        }
+        @keyframes fall {
+            0% {
+                top: -10%;
+                opacity: 1;
+            }
+            100% {
+                top: 110%;
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="decorations">🐰❤️🐰</div>
+    <div class="decorations-right">❤️🐰❤️</div>
+
+    <h1>For My Sweetheart</h1>
+
+    <div class="gallery">
+        <img src="photo1.jpg" alt="Photo 1">
+        <img src="photo2.jpg" alt="Photo 2">
+        <img src="photo3.jpg" alt="Photo 3">
+        <img src="photo4.jpg" alt="Photo 4">
+    </div>
+
+    <div class="love-message">
+        <p>My dearest love, you are my sunshine, my happiness, and my everything. I love you forever!</p>
+    </div>
+
+    <!-- Hearts falling -->
+    <script>
+        const createHeart = () => {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = (2 + Math.random() * 3) + 's';
+            heart.innerText = '❤️';
+            document.body.appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 5000);
+        };
+
+        setInterval(createHeart, 300);
+    </script>
+
+</body>
+</html>
